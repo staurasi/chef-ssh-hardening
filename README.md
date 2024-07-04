@@ -36,6 +36,8 @@ override['ssh-hardening']['ssh']['server']['listen_to'] = node['ipaddress']
 
 * `['ssh-hardening']['network']['ipv6']['enable']` - `false`. Set to true if IPv6 is needed
 * `['ssh-hardening']['ssh']['ports']` - `22`. Ports to which ssh-server should listen to and ssh-client should connect to
+* `['ssh-hardening']['ssh'][{'client', 'server'}]['ports']` - `nil`. Ports to which ssh-server should listen to or ssh-client should connect to,
+separately and with precedence over the previous attribute
 * `['ssh-hardening']['ssh'][{'client', 'server'}]['kex']` - `nil` to calculate best key-exchange (KEX) based on server version, otherwise specify a string of Kex values
 * `['ssh-hardening']['ssh'][{'client', 'server'}]['mac']` - `nil` to calculate best Message Authentication Codes (MACs) based on server version, otherwise specify a string of Mac values
 * `['ssh-hardening']['ssh'][{'client', 'server'}]['cipher']` - `nil` to calculate best ciphers based on server version, otherwise specify a string of Cipher values

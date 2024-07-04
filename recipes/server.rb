@@ -182,6 +182,7 @@ template '/etc/ssh/sshd_config' do
         use_priv_sep: node['ssh-hardening']['ssh']['use_privilege_separation'] || DevSec::Ssh.get_server_privilege_separarion,
         hostkeys:     node['ssh-hardening']['ssh']['server']['host_key_files'] || DevSec::Ssh.get_server_algorithms.map { |alg| "/etc/ssh/ssh_host_#{alg}_key" },
         version:      DevSec::Ssh.get_ssh_server_version
+        ssh_ports:        node['ssh-hardening']['ssh']['server']['ports']  || node['ssh-hardening']['ssh']['ports']
       }
     end
   )

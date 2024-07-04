@@ -19,7 +19,7 @@ PermitRootLogin no
 <% end %>
 
 # Define which port sshd should listen to. Default to `22`.
-<% Array(@node['ssh-hardening']['ssh']['ports']).each do |ssh_port| %>
+<% Array(@ssh_ports).each do |ssh_port| %>
 Port <%= ssh_port %>
 <% end %>
 

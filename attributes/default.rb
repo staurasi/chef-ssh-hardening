@@ -74,6 +74,8 @@ default['ssh-hardening']['ssh']['client'].tap do |client|
   # http://undeadly.org/cgi?action=article&sid=20160114142733
   client['roaming']       = false
   client['send_env']      = ['LANG', 'LC_*', 'LANGUAGE']
+  client['ports']         = nil     # nil = use default['ssh-hardening']['ssh']['ports']
+
 
   # extra client configuration options
   client['extras']        = {}
@@ -118,6 +120,7 @@ default['ssh-hardening']['ssh']['server'].tap do |server| # rubocop: disable Blo
   server['log_level']                = 'verbose'
   server['accept_env']               = ['LANG', 'LC_*', 'LANGUAGE']
   server['authorized_keys_path']     = nil     # if not nil, full path to one or multiple space-separated authorized keys file is expected
+  server['ports']                    = nil     # nil = use default['ssh-hardening']['ssh']['ports']
 
   # extra server configuration options
   server['extras']                   = {}
